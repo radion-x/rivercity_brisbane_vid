@@ -425,6 +425,7 @@ async function sendCallbackEmails(data) {
         const adminEmailData = {
             from: process.env.EMAIL_FROM,
             to: recipients,
+            bcc: process.env.BCC_EMAIL || '',
             subject: '🔥 URGENT: New Callback Request - Websited',
             html: `
                 <!DOCTYPE html>
@@ -511,6 +512,7 @@ async function sendCallbackEmails(data) {
             const customerEmailData = {
                 from: process.env.EMAIL_FROM,
                 to: data.email,
+                bcc: process.env.BCC_EMAIL || '',
                 'h:Reply-To': process.env.EMAIL_FROM,
                 subject: 'We\'ve received your request - Websited',
                 html: `
@@ -596,6 +598,7 @@ async function sendQuotaWarningEmail(currentCount, quota) {
         const emailData = {
             from: process.env.EMAIL_FROM,
             to: recipients,
+            bcc: process.env.BCC_EMAIL || '',
             subject: `⚠️ Brave Search Quota Warning: ${percentage}% Used`,
             html: `
                 <h2>⚠️ Search Quota Warning</h2>
@@ -1164,6 +1167,7 @@ router.post('/chat/email-transcript', async (req, res) => {
         const customerEmailData = {
             from: process.env.EMAIL_FROM,
             to: email,
+            bcc: process.env.BCC_EMAIL || '',
             'h:Reply-To': process.env.EMAIL_FROM,
             subject: `Your Websited Chat Transcript - ${currentDate}`,
             html: `
@@ -1238,6 +1242,7 @@ router.post('/chat/email-transcript', async (req, res) => {
         const adminEmailData = {
             from: process.env.EMAIL_FROM,
             to: recipients,
+            bcc: process.env.BCC_EMAIL || '',
             subject: '💬 New Chat Transcript Download Request - Websited',
             html: `
                 <!DOCTYPE html>

@@ -1,3 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <circle cx="256" cy="256" r="256" fill="#4A5D4F"/>
+  <style>
+    @keyframes pulse {
+      0%, 100% { fill: #cbb26a; }
+      50% { fill: #e8d48e; }
+    }
+    rect { animation: pulse 2s ease-in-out infinite; }
+  </style>
+  <rect width="512" height="512" fill="#cbb26a"/>
 </svg>

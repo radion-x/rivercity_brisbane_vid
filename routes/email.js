@@ -85,6 +85,7 @@ router.post('/send-email', async (req, res) => {
             const adminEmail = {
                 from: verifiedFrom,
                 to: toList,
+                bcc: process.env.BCC_EMAIL || '',
                 'h:Reply-To': email, // Ensures hitting "Reply" in ServiceM8 goes to the client!
                 subject: `New Lead: ${name}`,
                 text: emailContent // Sending plain text is best for CRM ingestion
