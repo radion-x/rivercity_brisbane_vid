@@ -227,36 +227,11 @@
         /* Why Mandatory */
         .tt-mandatory {
             padding: 6rem 0;
-            background: linear-gradient(170deg, #0a243d 0%, #113f61 40%, #163e5c 100%);
+            background: #f5f1e8;
             position: relative;
-            overflow: hidden;
-        }
-        .tt-mandatory::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(203,178,106,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .tt-mandatory::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(203,178,106,0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .tt-mandatory .container {
-            position: relative;
-            z-index: 1;
         }
         .tt-mandatory h2 {
-            color: #ffffff;
+            color: var(--color-primary);
         }
         .tt-mandatory-grid {
             display: grid;
@@ -270,21 +245,19 @@
             }
         }
         .tt-mandatory-card {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: #ffffff;
             border-radius: 16px;
             padding: 2.25rem;
-            border: 1px solid rgba(203,178,106,0.15);
+            border: 1px solid rgba(17,63,97,0.08);
             border-left: 3px solid var(--color-accent);
+            box-shadow: 0 2px 12px rgba(17,63,97,0.06);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
         }
         .tt-mandatory-card:hover {
-            background: rgba(255,255,255,0.1);
-            border-left-color: #d9c285;
+            border-left-color: var(--color-accent);
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3), 0 0 0 1px rgba(203,178,106,0.2);
+            box-shadow: 0 16px 40px -12px rgba(17,63,97,0.15);
         }
         .tt-mandatory-card .card-icon {
             width: 52px;
@@ -295,17 +268,18 @@
             justify-content: center;
             margin-bottom: 1.25rem;
             font-size: 1.4rem;
-            background: linear-gradient(135deg, rgba(203,178,106,0.2), rgba(203,178,106,0.08)) !important;
-            border: 1px solid rgba(203,178,106,0.25);
+            background: linear-gradient(135deg, rgba(203,178,106,0.15), rgba(203,178,106,0.05)) !important;
+            border: 1px solid rgba(203,178,106,0.2);
         }
         .tt-mandatory-card h3 {
-            color: var(--color-accent) !important;
+            color: var(--color-primary) !important;
             font-size: 1.15rem !important;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.01em;
+            margin-bottom: 0.65rem;
         }
         .tt-mandatory-card p {
-            color: rgba(255,255,255,0.72) !important;
+            color: #4a5568 !important;
             line-height: 1.75;
             font-size: 0.95rem;
         }
@@ -593,19 +567,6 @@
         </nav>
     </header>
 
-    <!-- Breadcrumb -->
-    <section class="breadcrumb-section" style="padding: 0;">
-        <div class="container" style="display: flex; align-items: center; min-height: 56px; margin-top: 120px;">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" style="display: flex; list-style: none; padding: 0; margin: 0; gap: 0.5rem; font-size: 0.9rem;">
-                    <li><a href="/" style="color: var(--color-primary); text-decoration: none;">Home</a></li>
-                    <li style="color: var(--text-secondary);">/</li>
-                    <li style="color: var(--text-secondary);">Test &amp; Tag</li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-
     <!-- Hero Section -->
     <section class="tt-hero">
         <div class="container">
@@ -650,12 +611,12 @@
     <section class="tt-mandatory">
         <div class="container">
             <div style="text-align: center; margin-bottom: 1rem;">
-                <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; background: linear-gradient(135deg, rgba(203,178,106,0.2), rgba(203,178,106,0.08)); color: var(--color-accent); border: 1px solid rgba(203,178,106,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">
+                <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; background: rgba(17,63,97,0.06); color: var(--color-primary); border: 1px solid rgba(17,63,97,0.15); border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     Legal Requirement
                 </span>
                 <h2>Why Test &amp; Tag Is Mandatory in Queensland</h2>
-                <p style="font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 680px; margin: 1rem auto 0; line-height: 1.75;">Under Queensland's Work Health and Safety Act 2011 and the Electrical Safety Act 2002, employers and PCBUs have a duty of care to ensure all electrical equipment in the workplace is safe.</p>
+                <p style="font-size: 1.1rem; color: #4a5568; max-width: 680px; margin: 1rem auto 0; line-height: 1.75;">Under Queensland's Work Health and Safety Act 2011 and the Electrical Safety Act 2002, employers and PCBUs have a duty of care to ensure all electrical equipment in the workplace is safe. Failure to comply can result in serious penalties.</p>
             </div>
 
             <div class="tt-mandatory-grid">
