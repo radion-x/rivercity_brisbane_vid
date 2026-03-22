@@ -121,6 +121,40 @@
         ]
     }
     </script>
+    <style>
+        /* Test & Tag card styles */
+        .tt-card-link {
+            text-decoration: none;
+            display: block;
+        }
+        .tt-service-card {
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s cubic-bezier(0.23,1,0.32,1) !important;
+        }
+        .tt-service-card:hover {
+            transform: translateY(-6px) !important;
+            box-shadow: 0 24px 48px -12px rgba(17,63,97,0.45), 0 0 0 1px rgba(203,178,106,0.25) !important;
+        }
+        .tt-card-glow {
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(203,178,106,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: ttGlowPulse 4s ease-in-out infinite;
+        }
+        @keyframes ttGlowPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        .tt-service-card .service-icon {
+            background: rgba(203,178,106,0.12) !important;
+            border: 1px solid rgba(203,178,106,0.25) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -579,26 +613,49 @@
                     </ul>
                 </div>
 
-                <!-- Service 7: Test & Tag (Featured) -->
-                <a href="/service/test-and-tag/" style="grid-column: 1 / -1; text-decoration: none; display: block;">
-                    <div style="background: linear-gradient(145deg, #0c2f4a 0%, #113f61 60%, #1a5682 100%); border-radius: var(--radius-lg); padding: 2.5rem 3rem; display: flex; align-items: center; gap: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 20px 40px -10px rgba(17,63,97,0.4)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
-                        <!-- Icon -->
-                        <div style="width: 64px; height: 64px; min-width: 64px; background: rgba(203, 178, 106, 0.15); border: 1px solid rgba(203, 178, 106, 0.3); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cbb26a" stroke-width="2.2">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                            </svg>
-                        </div>
-                        <!-- Content -->
-                        <div style="flex: 1;">
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap;">
-                                <h3 style="font-size: 1.35rem; margin: 0; color: white; font-weight: 700;">Test & Tag Services</h3>
-                                <span style="display: inline-block; padding: 0.3rem 0.8rem; background: rgba(203, 178, 106, 0.15); border: 1px solid rgba(203, 178, 106, 0.35); border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: #cbb26a;">AS/NZS 3760</span>
+                <!-- Service 7: Test & Tag -->
+                <a href="/service/test-and-tag/" class="tt-card-link">
+                    <div class="service-card tt-service-card" style="padding: 2.5rem; background: linear-gradient(155deg, #0c2f4a 0%, #113f61 55%, #1a5682 100%); border: 1px solid rgba(203,178,106,0.2); position: relative; overflow: hidden;">
+                        <div class="tt-card-glow"></div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+                            <div class="service-icon" style="margin-bottom: 0; background: rgba(203,178,106,0.12); border: 1px solid rgba(203,178,106,0.25);">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#cbb26a" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                                </svg>
                             </div>
-                            <p style="margin: 0; color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 0.975rem;">Keep your workplace safe and compliant. Professional electrical testing for offices, construction sites &amp; commercial premises — competitive bulk rates.</p>
+                            <span style="padding: 0.3rem 0.75rem; background: rgba(203,178,106,0.12); border: 1px solid rgba(203,178,106,0.3); border-radius: 50px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #cbb26a;">AS/NZS 3760</span>
                         </div>
-                        <!-- Arrow -->
-                        <div style="min-width: 20px; color: rgba(255,255,255,0.4);">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #ffffff;">Test &amp; Tag Services</h3>
+                        <p style="margin-bottom: 1.5rem; color: rgba(255,255,255,0.65); line-height: 1.7;">Keep your workplace safe and compliant. Professional electrical testing for offices, construction sites &amp; commercial premises.</p>
+                        <ul class="service-features" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cbb26a" stroke-width="2" style="margin-right: 0.75rem;">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span style="color: rgba(255,255,255,0.8);">Portable appliance testing</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cbb26a" stroke-width="2" style="margin-right: 0.75rem;">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span style="color: rgba(255,255,255,0.8);">Compliance certificates &amp; tagging</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cbb26a" stroke-width="2" style="margin-right: 0.75rem;">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span style="color: rgba(255,255,255,0.8);">Competitive bulk rates</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cbb26a" stroke-width="2" style="margin-right: 0.75rem;">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span style="color: rgba(255,255,255,0.8);">All equipment types covered</span>
+                            </li>
+                        </ul>
+                        <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #cbb26a; font-weight: 600; font-size: 0.9rem;">
+                            Learn more
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         </div>
                     </div>
                 </a>
