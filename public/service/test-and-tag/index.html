@@ -227,35 +227,87 @@
         /* Why Mandatory */
         .tt-mandatory {
             padding: 6rem 0;
-            background: var(--color-bg-surface);
+            background: linear-gradient(170deg, #0a243d 0%, #113f61 40%, #163e5c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .tt-mandatory::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(203,178,106,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .tt-mandatory::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(203,178,106,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .tt-mandatory .container {
+            position: relative;
+            z-index: 1;
+        }
+        .tt-mandatory h2 {
+            color: #ffffff;
         }
         .tt-mandatory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
             margin-top: 3rem;
         }
+        @media (max-width: 768px) {
+            .tt-mandatory-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         .tt-mandatory-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.25rem;
+            border: 1px solid rgba(203,178,106,0.15);
+            border-left: 3px solid var(--color-accent);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
         }
         .tt-mandatory-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12);
+            background: rgba(255,255,255,0.1);
+            border-left-color: #d9c285;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3), 0 0 0 1px rgba(203,178,106,0.2);
         }
         .tt-mandatory-card .card-icon {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.25rem;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, rgba(203,178,106,0.2), rgba(203,178,106,0.08)) !important;
+            border: 1px solid rgba(203,178,106,0.25);
+        }
+        .tt-mandatory-card h3 {
+            color: var(--color-accent) !important;
+            font-size: 1.15rem !important;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+        .tt-mandatory-card p {
+            color: rgba(255,255,255,0.72) !important;
+            line-height: 1.75;
+            font-size: 0.95rem;
         }
 
         /* Equipment Grid */
@@ -598,31 +650,42 @@
     <section class="tt-mandatory">
         <div class="container">
             <div style="text-align: center; margin-bottom: 1rem;">
-                <span style="display: inline-block; padding: 0.5rem 1rem; background: #fee2e2; color: #991b1b; border-radius: 50px; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem;">LEGAL REQUIREMENT</span>
+                <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; background: linear-gradient(135deg, rgba(203,178,106,0.2), rgba(203,178,106,0.08)); color: var(--color-accent); border: 1px solid rgba(203,178,106,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Legal Requirement
+                </span>
                 <h2>Why Test &amp; Tag Is Mandatory in Queensland</h2>
-                <p style="font-size: 1.125rem; color: var(--text-secondary); max-width: 700px; margin: 1rem auto 0;">Under Queensland's Work Health and Safety Act 2011 and the Electrical Safety Act 2002, employers and PCBUs have a duty of care to ensure all electrical equipment in the workplace is safe. Failure to comply can result in serious penalties — and more importantly, puts lives at risk.</p>
+                <p style="font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 680px; margin: 1rem auto 0; line-height: 1.75;">Under Queensland's Work Health and Safety Act 2011 and the Electrical Safety Act 2002, employers and PCBUs have a duty of care to ensure all electrical equipment in the workplace is safe.</p>
             </div>
 
             <div class="tt-mandatory-grid">
                 <div class="tt-mandatory-card">
-                    <div class="card-icon" style="background: #fee2e2;">⚠️</div>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Legal Obligation</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Queensland's Electrical Safety Act 2002 requires that all electrical equipment in a workplace is electrically safe. Regular testing and tagging to AS/NZS 3760 is the accepted method of demonstrating compliance.</p>
+                    <div class="card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3>Legal Obligation</h3>
+                    <p>Queensland's Electrical Safety Act 2002 requires that all electrical equipment in a workplace is electrically safe. Regular testing and tagging to AS/NZS 3760 is the accepted method of demonstrating compliance.</p>
                 </div>
                 <div class="tt-mandatory-card">
-                    <div class="card-icon" style="background: #dbeafe;">🛡️</div>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Protect Your People</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Faulty electrical equipment is one of the leading causes of workplace fires and electric shock injuries. Testing catches faults before they become dangerous — frayed cords, earth leakage, insulation breakdown.</p>
+                    <div class="card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </div>
+                    <h3>Protect Your People</h3>
+                    <p>Faulty electrical equipment is one of the leading causes of workplace fires and electric shock injuries. Testing catches faults before they become dangerous — frayed cords, earth leakage, insulation breakdown.</p>
                 </div>
                 <div class="tt-mandatory-card">
-                    <div class="card-icon" style="background: #fef3c7;">💰</div>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Avoid Fines &amp; Liability</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Non-compliance can result in significant fines from Workplace Health and Safety QLD, and leaves you exposed to liability claims if an incident occurs. Regular testing protects your business and your people.</p>
+                    <div class="card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>Avoid Fines &amp; Liability</h3>
+                    <p>Non-compliance can result in significant fines from Workplace Health and Safety QLD, and leaves you exposed to liability claims if an incident occurs. Regular testing protects your business and your people.</p>
                 </div>
                 <div class="tt-mandatory-card">
-                    <div class="card-icon" style="background: #dcfce7;">📋</div>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Insurance Requirements</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.7;">Many insurance policies require evidence that electrical equipment is regularly tested and maintained. Without current test records, a claim related to electrical equipment could be denied.</p>
+                    <div class="card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9.5h20"/></svg>
+                    </div>
+                    <h3>Insurance Requirements</h3>
+                    <p>Many insurance policies require evidence that electrical equipment is regularly tested and maintained. Without current test records, a claim related to electrical equipment could be denied.</p>
                 </div>
             </div>
         </div>
