@@ -123,7 +123,7 @@
         .tt-hero {
             position: relative;
             padding: 10rem 0 6rem;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            background: linear-gradient(145deg, #0c2f4a 0%, #113f61 50%, #0c2f4a 100%);
             color: white;
             overflow: hidden;
         }
@@ -156,7 +156,7 @@
             color: white;
         }
         .tt-hero h1 span {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            background: linear-gradient(135deg, #cbb26a, #d9c285);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -173,12 +173,12 @@
             align-items: center;
         }
         .compliance-tag {
-            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            background: linear-gradient(135deg, #113f61 0%, #1a5682 100%);
             border-radius: 16px;
             padding: 2.5rem;
             width: 280px;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            border: 2px solid rgba(16, 185, 129, 0.3);
+            border: 2px solid rgba(203, 178, 106, 0.3);
             transform: rotate(3deg);
             position: relative;
         }
@@ -200,8 +200,8 @@
         }
         .compliance-tag .tag-status .pass {
             display: inline-block;
-            background: #10b981;
-            color: white;
+            background: var(--color-accent);
+            color: #1a1a2e;
             font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: 0.15em;
@@ -414,7 +414,7 @@
         /* CTA Banner */
         .tt-cta-banner {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1e40af 100%);
+            background: linear-gradient(145deg, #0c2f4a 0%, #113f61 50%, #1a5682 100%);
             color: white;
             text-align: center;
             position: relative;
@@ -427,7 +427,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
             background-size: 24px 24px;
             pointer-events: none;
         }
@@ -443,6 +443,35 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+        .tt-cta-banner .cta-btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            background: var(--color-accent);
+            color: #1a1a2e;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            transition: background 0.3s ease;
+        }
+        .tt-cta-banner .cta-btn-primary:hover {
+            background: var(--color-accent-hover);
+        }
+        .tt-cta-banner .cta-btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .tt-cta-banner .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
         }
 
         /* Responsive */
@@ -530,11 +559,11 @@
         <div class="container">
             <div class="tt-hero-grid">
                 <div>
-                    <span style="display: inline-block; padding: 0.5rem 1rem; background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.3); color: #fbbf24; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem;">AS/NZS 3760 COMPLIANT</span>
+                    <span style="display: inline-block; padding: 0.5rem 1rem; background: rgba(203, 178, 106, 0.15); border: 1px solid rgba(203, 178, 106, 0.3); color: #cbb26a; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1.5rem;">AS/NZS 3760 COMPLIANT</span>
                     <h1>Professional <span>Test &amp; Tag</span> Services in Brisbane</h1>
                     <p>Keep your workplace, rental property, or construction site compliant with Queensland electrical safety regulations. We test and tag all portable electrical equipment on-site — fast, thorough, and fully documented.</p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="#contact" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.05rem; box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);">Get a Free Quote</a>
+                        <a href="#contact" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.05rem;">Get a Free Quote</a>
                         <a href="tel:0408022833" class="btn btn-lg" style="padding: 1rem 2.5rem; font-size: 1.05rem; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md);">Call 0408 022 833</a>
                     </div>
                 </div>
@@ -802,8 +831,8 @@
             <h2>Don't Wait for an Incident — Get Tested Today</h2>
             <p>Most Brisbane businesses can be fully tested and tagged in a single visit. Book yours and tick compliance off the list.</p>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                <a href="#contact" class="btn btn-lg" style="padding: 1rem 2.5rem; font-size: 1.05rem; background: white; color: var(--color-primary); font-weight: 700; border-radius: var(--radius-md); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);">Get a Free Quote</a>
-                <a href="tel:0408022833" class="btn btn-lg" style="padding: 1rem 2.5rem; font-size: 1.05rem; background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius-md);">Call 0408 022 833</a>
+                <a href="#contact" class="cta-btn-primary">Get a Free Quote</a>
+                <a href="tel:0408022833" class="cta-btn-secondary">Call 0408 022 833</a>
             </div>
         </div>
     </section>
