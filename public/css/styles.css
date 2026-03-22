@@ -347,9 +347,7 @@ header {
     height: 90px;
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.93);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
+    background-color: #ffffff;
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.09), 0 2px 6px rgba(0,0,0,0.04);
@@ -448,8 +446,9 @@ header > .nav-container {
 
 /* Logo Sizing */
 .nav-logo-img {
-    height: 54px;
+    height: 70px;
     width: auto;
+    padding: 5px 0;
 }
 
 .nav-links {
@@ -471,7 +470,7 @@ header > .nav-container {
 
 /* Right-aligned nav items */
 .nav-logo-img {
-    height: 68px;
+    height: 80px;
     width: auto;
 }
 
@@ -2372,7 +2371,7 @@ header > .nav-container {
 }
 
 .nav-logo-img {
-    height: 68px;
+    height: 80px;
     width: auto;
 }
 
