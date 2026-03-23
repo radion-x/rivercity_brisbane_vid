@@ -24,8 +24,7 @@
     <meta name="twitter:description" content="Premium handyman services across Brisbane — flatpacks, TV mounting, plaster patching, paint touch-ups, gutter cleaning, pressure washing and deck oiling.">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link id="favicon-animated" rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- Google Fonts: Sora (Headings) & Source Sans Pro (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1984,5 +1983,116 @@
     
     <!-- Contact Modal -->
     <script src="/js/contactModal.js"></script>
+
+    <!-- Tab favicon + title animation -->
+    <script>
+    (function() {
+        // ── Favicon animation (pure SVG data URLs — no canvas) ────────
+        // Remove ALL existing favicon links and replace with one we control
+        document.querySelectorAll('link[rel*="icon"]').forEach(function(el) {
+            el.parentNode.removeChild(el);
+        });
+        var link = document.createElement('link');
+        link.rel  = 'icon';
+        link.type = 'image/svg+xml';
+        document.head.appendChild(link);
+
+        var BLUE = '#113f61', GOLD = '#cbb26a';
+        var HOLD_MS  = 3000;   // hold each colour
+        var STEPS    = 18;     // crossfade frames
+        var STEP_MS  = 55;     // ms per frame (~1s total fade)
+        var isBlue   = true;
+
+        function h(hex) {
+            return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)];
+        }
+        function mix(a, b, t) {
+            var ar = h(a), br = h(b);
+            return '#' + ar.map(function(v,i){
+                return ('0' + Math.round(v + (br[i]-v)*t).toString(16)).slice(-2);
+            }).join('');
+        }
+        function svgUrl(bg, fg) {
+            return 'data:image/svg+xml,' + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
+                + '<rect width="64" height="64" rx="13" fill="' + bg + '"/>'
+                + '<text x="32" y="45" font-family="Georgia,serif" font-size="40" font-weight="700"'
+                + ' fill="' + fg + '" text-anchor="middle" dominant-baseline="auto">R</text>'
+                + '</svg>'
+            );
+        }
+
+        // Set initial icon immediately (no waiting)
+        link.href = svgUrl(BLUE, GOLD);
+
+        function crossfade(fromBg, fromFg, toBg, toFg, step) {
+            if (step > STEPS) {
+                link.href = svgUrl(toBg, toFg);
+                setTimeout(startCycle, HOLD_MS);
+                return;
+            }
+            var t = step / STEPS;
+            link.href = svgUrl(mix(fromBg, toBg, t), mix(fromFg, toFg, t));
+            setTimeout(function(){ crossfade(fromBg, fromFg, toBg, toFg, step + 1); }, STEP_MS);
+        }
+
+        function startCycle() {
+            var fromBg = isBlue ? BLUE : GOLD;
+            var fromFg = isBlue ? GOLD : BLUE;
+            var toBg   = isBlue ? GOLD : BLUE;
+            var toFg   = isBlue ? BLUE : GOLD;
+            isBlue = !isBlue;
+            crossfade(fromBg, fromFg, toBg, toFg, 0);
+        }
+
+        setTimeout(startCycle, HOLD_MS);
+
+        // ── Tab title animation ──────────────────────────────────────
+        var baseTitle = document.title;
+        var phrases = [
+            baseTitle,
+            '✦ Fully Insured & On Time',
+            '✦ Brisbane\'s Trusted Tradie',
+            '✦ Get a Free Quote Today'
+        ];
+        var phraseIndex = 0;
+        var charIndex   = 0;
+        var typing      = true;
+        var HOLD_TITLE_MS  = 2600;  // hold full phrase before erasing
+        var TYPE_MS        = 52;    // ms per character typed
+        var ERASE_MS       = 28;    // ms per character erased
+        var PAUSE_BETWEEN  = 400;   // pause before typing next
+
+        function typeTitle() {
+            var phrase = phrases[phraseIndex];
+            if (typing) {
+                document.title = phrase.slice(0, charIndex);
+                if (charIndex < phrase.length) {
+                    charIndex++;
+                    setTimeout(typeTitle, TYPE_MS);
+                } else {
+                    // Hold at full phrase
+                    setTimeout(function(){ typing = false; typeTitle(); }, HOLD_TITLE_MS);
+                }
+            } else {
+                document.title = phrase.slice(0, charIndex);
+                if (charIndex > 0) {
+                    charIndex--;
+                    // Erase faster but not instant
+                    setTimeout(typeTitle, ERASE_MS);
+                } else {
+                    // Move to next phrase
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typing = true;
+                    charIndex = 0;
+                    setTimeout(typeTitle, PAUSE_BETWEEN);
+                }
+            }
+        }
+
+        // Start title animation after 4s so it doesn\'t interrupt page load focus
+        setTimeout(typeTitle, 4000);
+    })();
+    </script>
 </body>
 </html>
