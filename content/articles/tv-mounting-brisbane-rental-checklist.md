@@ -8,8 +8,8 @@ displayDate: "2026-09-28"
 updated: "2026-10-04"
 category: "Rental Installations"
 excerpt: "Confirm permission and scope before drilling, then gather the product and property details needed for a TV-mounting quote."
-image: "/images/blog/tv-booking-guide.svg"
-imageAlt: "Illustration of a television, written permission sheet and rental installation checklist"
+image: "/images/blog/tv-mounting-photo.jpg"
+imageAlt: "Illustrative photo of a wall-mounted TV in an apartment living room"
 author: "River City Handyman"
 sources: ["https://www.rta.qld.gov.au/sites/default/files/2025-04/Fact-sheet-fixture-and-structural-changes-in-rental-properties.pdf"]
 ---

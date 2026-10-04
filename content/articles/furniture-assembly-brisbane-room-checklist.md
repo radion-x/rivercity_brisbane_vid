@@ -8,8 +8,8 @@ displayDate: "2026-09-21"
 updated: "2026-10-04"
 category: "Furniture Assembly"
 excerpt: "Use a room-by-room worksheet to organise beds, desks and storage, then confirm the work included in your assembly booking."
-image: "/images/blog/assembly-booking-guide.svg"
-imageAlt: "Illustration of labelled furniture boxes and a room-by-room assembly worksheet"
+image: "/images/blog/furniture-assembly-photo.jpg"
+imageAlt: "Illustrative photo of flatpack furniture and drawer components ready for assembly"
 author: "River City Handyman"
 sources: ["https://www.ikea.com/au/en/customer-service/knowledge/articles/56b45bc4-8094-4064-9ae6-e249fb90ca61.html", "https://www.productsafety.gov.au/publication/toppling-furniture-why-anchor-it"]
 ---
