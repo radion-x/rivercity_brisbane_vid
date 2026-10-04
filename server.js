@@ -6,6 +6,7 @@ const emailRoutes = require('./routes/email');
 const aiRoutes = require('./routes/ai');
 const callbackRoutes = require('./routes/callbacks');
 const initDatabase = require('./db/init');
+const { seoMiddleware, robots, renderSitemap } = require('./lib/seo');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +23,9 @@ app.use((req, res, next) => {
     res.setHeader('X-XSS-Protection', '1; mode=block');
     next();
 });
+
+// Canonical routes, retired template pages and non-public indexing headers
+app.use(seoMiddleware);
 
 // Serve static files from public directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -40,6 +44,9 @@ app.use('/api', emailRoutes);
 app.use('/api', aiRoutes);
 app.use('/api', callbackRoutes);
 
+app.get('/robots.txt', robots);
+app.get('/sitemap.xml', (req, res) => res.type('application/xml').send(renderSitemap()));
+
 // Serve index.html for root route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -53,7 +60,7 @@ app.use((err, req, res, next) => {
 });
 
 // Initialize database and start server
-(async () => {
+async function startServer() {
     try {
         await initDatabase();
         console.log('✅ Database initialized successfully');
@@ -62,7 +69,7 @@ app.use((err, req, res, next) => {
         process.exit(1);
     }
 
-    app.listen(PORT, '0.0.0.0', () => {
+    return app.listen(PORT, '0.0.0.0', () => {
         console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
         console.log(`📧 Email API: http://localhost:${PORT}/api/send-email`);
         console.log(`🤖 AI Chat API: http://localhost:${PORT}/api/chat`);
@@ -70,6 +77,8 @@ app.use((err, req, res, next) => {
         console.log(`🔧 Admin Dashboard: http://localhost:${PORT}/admin/callbacks.html`);
         console.log(`❤️ Health check: http://localhost:${PORT}/health`);
     });
-})();
+}
 
+if (require.main === module) startServer();
 module.exports = app;
+module.exports.startServer = startServer;

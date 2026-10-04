@@ -121,17 +121,12 @@ class FormHandler {
 
             const result = await response.json();
 
-            if (response.ok) {
+            if (response.ok && result.success !== false) {
                 this.showStatus('success', result.message || 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
                 this.form.reset();
                 
                 // Track conversion (if you use analytics)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submission', {
-                        'event_category': 'contact',
-                        'event_label': 'contact_form'
-                    });
-                }
+                if (window.handymanAnalytics) window.handymanAnalytics.lead();
             } else {
                 this.showStatus('error', result.error || 'Something went wrong. Please try again or contact us directly.');
             }

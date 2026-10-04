@@ -222,17 +222,12 @@ class ContactModal {
 
             const result = await response.json();
 
-            if (response.ok) {
+            if (response.ok && result.success !== false) {
                 this.showStatus('success', result.message || 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
                 form.reset();
 
                 // Track conversion (if Google Analytics is available)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submission', {
-                        'event_category': 'contact',
-                        'event_label': 'contact_modal'
-                    });
-                }
+                if (window.handymanAnalytics) window.handymanAnalytics.lead();
 
                 // Close modal after 3 seconds
                 setTimeout(() => {

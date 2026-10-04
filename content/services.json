@@ -1,0 +1,107 @@
+{
+  "brand": "River City Handyman",
+  "city": "Brisbane",
+  "url": "https://rivercityhandyman.com.au",
+  "logo": "/images/logos/river-city-logo-nobg.png",
+  "services": [
+    {
+      "slug": "tv-mounting",
+      "name": "TV wall mounting",
+      "intro": "TV wall mounting secures your television at a practical viewing height using a bracket and fixings suited to the wall. Send the screen size, bracket details and a photo of the proposed position before booking.",
+      "sections": [
+        [
+          "A wall-mounted screen that works for the room",
+          [
+            "Before choosing a mounting point, look at the room from the seat you use most. Window glare, ceiling fans, doorways and a nearby console influence where the screen works best. River City Handyman can assess the intended position and discuss a practical arrangement before drilling begins.",
+            "Send the television model, screen size and a photograph of the room. Tell us if this is a new installation, a move from another wall or replacement of an existing screen. An existing bracket needs checking too; a previous installation does not establish that it suits the replacement television."
+          ]
+        ],
+        [
+          "Match the bracket to the screen and wall",
+          [
+            "A fixed bracket sits close to the wall, a tilting bracket allows some adjustment, and a full-motion arm changes the viewing direction. The right choice depends on how you use the room and support available in the wall. Include a product link if you already have a bracket.",
+            "Wall materials vary across Brisbane homes and apartments. Plasterboard and masonry require different fixing arrangements, while unusual linings or uncertain wall condition need closer assessment. We discuss the installation based on the actual surface and fixing points rather than assuming one method works everywhere."
+          ]
+        ],
+        [
+          "Settle the cable plan at the quoting stage",
+          [
+            "Photograph the existing socket and equipment such as a soundbar, console or set-top box. Cable lengths and connection points affect whether the finished installation looks tidy. If you want surface cable covers, include that request so it can be assessed with the mounting work.",
+            "Hiding cables is not automatically included in a standard mounting appointment. Wall access and services involved need checking. A new socket or changes to fixed electrical wiring require a licensed electrician. Discuss those tasks early so mounting does not leave an unresolved electrical requirement."
+          ]
+        ],
+        [
+          "Brisbane booking and access checklist",
+          [
+            "Tell us your suburb, property type and access arrangements. For inner-city apartments, include lift access, loading restrictions and building rules for drilling. In a rental, organise permission for wall alterations before confirming the work. For a detached home, mention stairs and the route to the room.",
+            "Leave a clear space beneath the mounting position and keep the screen, bracket and hardware ready for inspection. Large screens may need particular handling arrangements. Include related work, such as assembling a TV unit or hanging a shelf, in the original list rather than adding it after the visit has been timed."
+          ]
+        ]
+      ],
+      "faq": [
+        [
+          "Can I supply my own TV bracket?",
+          "Yes. Send its model or product link before booking so compatibility with the television and intended wall can be discussed."
+        ],
+        [
+          "Is a new power point included?",
+          "No. A new or relocated power point requires a licensed electrician and a separate scope of work."
+        ],
+        [
+          "Can you remount a television in a different room?",
+          "Ask for removal and remounting in your enquiry. Send photos of both positions and mention any patching needed at the old location."
+        ]
+      ]
+    },
+    {
+      "slug": "flatpack-assembly",
+      "name": "Flatpack furniture assembly",
+      "intro": "Flatpack furniture assembly turns boxed furniture into usable pieces, with the supplied parts checked and assembled according to the instructions. Share the product links, item quantities and room access details for a useful estimate.",
+      "sections": [
+        [
+          "Furniture setup without the unfinished boxes",
+          [
+            "A move, a new bedroom or a home office can leave several boxes waiting for assembly. River City Handyman can organise a booking around the actual products. Send links or model names for every item and their quantities, instead of estimating the job from the number of cartons.",
+            "Beds, desks, drawers, wardrobes and shelving have different assembly requirements. Include moving parts, wall restraints and large panels. Tell us whether the items are new or partly assembled, and whether old furniture needs moving before the new pieces can be built."
+          ]
+        ],
+        [
+          "Delivery and workspace come first",
+          [
+            "Confirm the furniture has arrived before arranging assembly. Some products arrive in several packages, with hardware packed separately. Check the delivery list and keep every bag of fittings with the instructions. Photograph damage and contact the supplier about missing pieces before assuming the job can go ahead.",
+            "Place cartons in the final room where possible. A completed wardrobe or bed may not fit through a door or down a staircase. Clear space for panels to be laid out and leave access to the surrounding area. Mention stairs, narrow passages and apartment lift bookings in your enquiry."
+          ]
+        ],
+        [
+          "Check the installation requirements",
+          [
+            "Follow the manufacturer requirements for safe use, including wall attachment where specified. Mention tall furniture and supplied restraints. Suitable fixings depend on the wall surface, and permission may be needed before drilling in a rental or strata property. Agree the wall work as part of the scope.",
+            "Assembly is different from altering cabinetry or installing fitted joinery. If you need a piece cut down, built into a space or attached in an unusual way, explain that separately. We assess the request before treating a custom alteration as an ordinary flatpack booking."
+          ]
+        ],
+        [
+          "Make a grouped booking work for your household",
+          [
+            "Put the important items first, especially if a bed or desk needs to be ready by a particular date. Send the complete list so the estimate covers the job. Several small pieces may be convenient to build together, but a large wardrobe or storage system changes the time required.",
+            "If an earlier assembly attempt has gone wrong, stop and photograph the affected parts. Incorrect screws or damaged connections may need replacements. We need to see the condition before promising completion. Packaging removal, dismantling old furniture and moving heavy items should be discussed beforehand rather than assumed to be included."
+          ]
+        ]
+      ],
+      "faq": [
+        [
+          "Do you assemble IKEA furniture?",
+          "Ask about the specific IKEA product and send its link or model name. Include the quantity and required wall restraints."
+        ],
+        [
+          "Can you assemble several pieces in one booking?",
+          "Yes, multiple items can be discussed together. A complete product list helps us estimate the time and prioritise the work."
+        ],
+        [
+          "Will you remove the packaging?",
+          "Tell us about packaging disposal when requesting the quote. Do not assume off-site removal is included in an assembly booking."
+        ]
+      ]
+    }
+  ],
+  "areas": "Brisbane and surrounding suburbs"
+}
