@@ -8,6 +8,7 @@ process.env.NODE_ENV = 'test';
 const app = require('../server');
 const config = require('../content/services.json');
 const { staticEntries, retiredPaths } = require('../lib/seo');
+const { getArticleBySlug } = require('../lib/blog');
 const isSydney = config.city === 'Sydney';
 
 test('canonical content, sitemap, redirects and retired routes', async (t) => {
@@ -26,7 +27,7 @@ test('canonical content, sitemap, redirects and retired routes', async (t) => {
         assert.ok(locs.length > 220);
         assert.ok(sitemap.includes('/service/bondi/'));
         assert.ok(sitemap.includes('/blog/what-jobs-can-a-handyman-do-nsw/'));
-    } else assert.equal(locs.length, 5);
+    } else assert.equal(locs.length, 8);
     for (const entry of staticEntries) {
         const route = entry.loc.slice(config.url.length);
         const response = await fetch(base + route);
@@ -67,7 +68,7 @@ test('new service pages link only to available routes and assets', () => {
         for (const match of html.matchAll(/(?:href|src)="(\/[^"]*)"/g)) {
             const route = match[1].split(/[?#]/)[0] || '/';
             const local = path.join(__dirname, '../public', decodeURIComponent(route));
-            assert.ok(fs.existsSync(local) || (isSydney && route.startsWith('/blog/')), route);
+            assert.ok(fs.existsSync(local) || (route === '/blog/' || (route.startsWith('/blog/') && getArticleBySlug(route.split('/')[2]))), route);
         }
     }
 });

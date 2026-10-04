@@ -6,6 +6,8 @@ const emailRoutes = require('./routes/email');
 const aiRoutes = require('./routes/ai');
 const callbackRoutes = require('./routes/callbacks');
 const initDatabase = require('./db/init');
+const blogRoutes = require('./routes/blog');
+const { SITE_URL, getArticles } = require('./lib/blog');
 const { seoMiddleware, robots, renderSitemap } = require('./lib/seo');
 
 const app = express();
@@ -43,9 +45,15 @@ app.get('/health', (req, res) => {
 app.use('/api', emailRoutes);
 app.use('/api', aiRoutes);
 app.use('/api', callbackRoutes);
+app.use('/blog', blogRoutes);
 
 app.get('/robots.txt', robots);
-app.get('/sitemap.xml', (req, res) => res.type('application/xml').send(renderSitemap()));
+app.get('/sitemap.xml', (req, res, next) => {
+    try {
+        const articles = getArticles().map(article => ({ loc: article.url, lastmod: article.updated || article.published }));
+        res.type('application/xml').send(renderSitemap([{ loc: SITE_URL + '/blog/' }, ...articles]));
+    } catch (error) { next(error); }
+});
 
 // Serve index.html for root route
 app.get('/', (req, res) => {

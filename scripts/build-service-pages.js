@@ -32,7 +32,7 @@ function page(title, description, route, body, schema = []) {
         '<header class="site-header"><div class="shell header-inner"><a class="brand-link" href="/"><img src="' + logo + '" width="210" height="68" alt="' + brand + '"></a>' +
         '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span class="sr-only">Open navigation</span><span></span><span></span><span></span></button>' +
         '<nav id="site-navigation" class="site-navigation" aria-label="Primary navigation"><a href="/services/">Services</a>' +
-        (isSydney ? '<a href="/areas/">Areas</a><a href="/blog/">Articles</a>' : '') +
+        (isSydney ? '<a href="/areas/">Areas</a>' : '') + '<a href="/blog/">Articles</a>' +
         '<a href="/#gallery">Our Work</a><a href="/#contact">Contact</a></nav><a class="header-phone" href="tel:0408022833">0408 022 833</a></div></header>' +
         '<main class="service-layout"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>' +
         (route.startsWith('/service/') ? '<a href="/services/">Services</a><span>/</span>' : '') +
@@ -50,6 +50,7 @@ function write(route, html) {
 }
 
 const list = services.map(s => '<li><a href="/service/' + s.slug + '/">' + escape(s.name) + '</a></li>').join('');
+const articleGuides = {"tv-mounting": ["tv-mounting-brisbane-rental-checklist", "Prepare for a TV-mounting booking"], "flatpack-assembly": ["furniture-assembly-brisbane-room-checklist", "Prepare for furniture assembly"]};
 for (const service of services) {
     const title = service.name + ' ' + city + ' | ' + brand;
     const route = '/service/' + service.slug + '/';
@@ -62,6 +63,8 @@ for (const service of services) {
         areaServed: { '@type': 'City', name: city },
         provider: { '@type': 'Organization', '@id': url + '/#business', name: brand, url: url + '/', telephone: '+61408022833' }
     };
+    const guide = articleGuides[service.slug];
+    const guideLink = guide ? '<p><a href="/blog/' + guide[0] + '/">' + escape(guide[1]) + '</a></p>' : '';
     const sections = service.sections.map(([heading, paragraphs]) => '<section><h2>' + escape(heading) + '</h2>' + paragraphs.map(p => '<p>' + escape(p) + '</p>').join('') + '</section>').join('');
     const booking = '<section><h2>Request a quote in ' + city + '</h2><p>' + brand + ' accepts enquiries for ' + service.name.toLowerCase() + ' across the ' + areas + '. Include your suburb and preferred timing so we can confirm coverage and availability for the particular job. A listed service area does not mean an appointment is available on every date.</p>' +
         '<ol><li><strong>Send the details.</strong> Use the quote form with a short description, photos and any relevant product links. Include the size or quantity of items and the access arrangements.</li><li><strong>Confirm the scope.</strong> We discuss the work, required materials and estimate. Tell us about permission, a deadline or other trades involved before booking.</li><li><strong>Prepare for the visit.</strong> Keep the work area accessible and the agreed parts ready. Any additional tasks or unexpected conditions need to be discussed before extra work proceeds.</li></ol>' +
@@ -71,7 +74,7 @@ for (const service of services) {
         '<li><a href="/service/test-and-tag/">Test and tag</a></li></ul>' +
         (isSydney ? '<p>Planning several jobs? Read our <a href="/blog/bundle-small-handyman-jobs-one-visit/">guide to bundling repairs</a>. For a rental inspection, see the <a href="/blog/end-of-lease-repair-checklist-sydney/">end-of-lease repair checklist</a>. Check <a href="/areas/">our priority Sydney areas</a> for local pages.</p>' : '<p>Looking for help with other repairs? See our <a href="/#services">Brisbane handyman service overview</a> and include the complete list in your enquiry.</p>') + '</section>';
     const cta = '<section class="article-cta"><h2>Tell us what needs doing</h2><p>Send the details and we will confirm the scope and next available booking.</p><a class="button" href="/#contact">Request a free quote</a><a class="button button-secondary" href="tel:0408022833">Call 0408 022 833</a></section>';
-    write(route, page(title, description, route, '<p class="section-label">' + city + ' handyman services</p><h1>' + escape(service.name) + ' in ' + city + '</h1><blockquote>' + escape(service.intro) + '</blockquote><a class="button" href="/#contact">Request a free quote</a>' + sections + booking + faq + related + cta, [schema]));
+    write(route, page(title, description, route, '<p class="section-label">' + city + ' handyman services</p><h1>' + escape(service.name) + ' in ' + city + '</h1><blockquote>' + escape(service.intro) + '</blockquote><a class="button" href="/#contact">Request a free quote</a>' + sections + booking + guideLink + faq + related + cta, [schema]));
 }
 
 write('/services/', page('Handyman services ' + city + ' | ' + brand, 'Explore handyman repairs, assembly and installation services in ' + city + '. Send your job list for a quote from ' + brand + '.', '/services/',
