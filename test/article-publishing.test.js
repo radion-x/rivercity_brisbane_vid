@@ -9,7 +9,8 @@ const config=require('../content/services.json');
 test('article pages preserve branding, dates, tracking, sources and internal destinations',async(t)=>{
  const server=app.listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));t.after(()=>new Promise(r=>server.close(r)));
  const base='http://127.0.0.1:'+server.address().port;
- const articles=getArticles();assert.equal(articles.length,config.city==='Sydney'?6:2);
+ const articles=getArticles();assert.equal(articles.length,config.city==='Sydney'?7:5);
+ assert.ok(articles.every((a,i)=>(!a.hasGuideDate||a.displayDate.toISOString().slice(0,10)<=a.published)&&(!i||articles[i-1].displayDate>=a.displayDate)));
  const siteMap=await(await fetch(base+'/sitemap.xml')).text();
  for(const article of articles){
   const route='/blog/'+article.slug+'/'; const response=await fetch(base+route);assert.equal(response.status,200,route);const html=await response.text();

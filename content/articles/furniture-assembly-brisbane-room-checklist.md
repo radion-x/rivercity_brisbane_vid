@@ -65,3 +65,7 @@ You can also mention a [TV-mounting booking](/service/tv-mounting/) or another s
 Send your room-by-room list, product links, delivery status and priority order. Add access photos, anchoring instructions, your suburb and preferred date. Explain any deadline without assuming a particular item takes a fixed amount of time.
 
 [Request a Brisbane furniture assembly quote](/#contact). We will review the list and confirm what can be booked and what needs more information.
+
+## Adding wall storage or other repairs?
+
+Our [shelf-installation checklist](/blog/shelf-installation-brisbane-wall-load-checklist/) covers the extra wall, load and permission details for shelving. Use the [small-repair job-list guide](/blog/small-repairs-brisbane-job-list/) to keep related requests clear in the same enquiry.
