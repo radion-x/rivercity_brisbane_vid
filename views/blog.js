@@ -35,7 +35,7 @@ function renderHead({ title, description, canonical, image, type = 'website', js
     <meta name="twitter:image" content="${escapeHtml(absoluteImage)}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate" type="application/rss+xml" title="River City Handyman Articles" href="${SITE_URL}/blog/feed.xml">
-    <link rel="stylesheet" href="/css/blog.css?v=4">
+    <link rel="stylesheet" href="/css/blog.css?v=5">
     ${schemas}
     <script defer src="/js/analytics.js"></script>`;
 }
@@ -161,10 +161,7 @@ ${renderHeader()}
         </div>
     </section>
     <section class="article-list shell" aria-label="Latest articles">
-        ${renderArticleCard(featuredArticle, { featured: true })}
-        <div class="article-card-stack">
-            ${remainingArticles.map((article) => renderArticleCard(article)).join('\n')}
-        </div>
+        ${articles.map((article, index) => renderArticleCard(article, { featured: index === 0 })).join('\n')}
     </section>
     <section class="index-cta">
         <div class="shell index-cta-inner">
