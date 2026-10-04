@@ -60,6 +60,6 @@ Tenants and property managers should agree the repair route and scope before arr
 
 ## Send one enquiry with the supporting details
 
-Attach the worksheet and photos together, with your priority order. For a particular fault, our [internal-door guide](/blog/sticking-door-loose-handle-brisbane/) and [shelf-installation checklist](/blog/shelf-installation-brisbane-wall-load-checklist/) explain the extra information needed.
+Attach the worksheet and photos together, with your priority order. For a particular fault, our [internal-door guide](/blog/sticking-door-loose-handle-brisbane/) [cupboard-door repair guide](/blog/cupboard-door-hinge-repairs-brisbane/) and [shelf-installation checklist](/blog/shelf-installation-brisbane-wall-load-checklist/) explain the extra information needed.
 
 [Send your Brisbane job list](/#contact) and ask which tasks can be assessed from the details, which need an inspection and which need a separate specialist. That gives the booking a clear purpose before tools, parts and time are committed.

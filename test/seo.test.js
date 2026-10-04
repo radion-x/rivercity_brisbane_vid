@@ -27,7 +27,7 @@ test('canonical content, sitemap, redirects and retired routes', async (t) => {
         assert.ok(locs.length > 220);
         assert.ok(sitemap.includes('/service/bondi/'));
         assert.ok(sitemap.includes('/blog/what-jobs-can-a-handyman-do-nsw/'));
-    } else assert.equal(locs.length, 11);
+    } else assert.equal(locs.length, 12);
     for (const entry of staticEntries) {
         const route = entry.loc.slice(config.url.length);
         const response = await fetch(base + route);
